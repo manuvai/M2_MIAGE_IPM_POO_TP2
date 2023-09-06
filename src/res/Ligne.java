@@ -33,7 +33,9 @@ public class Ligne {
 
     public void insererStation(Station station) {
         if (Objects.nonNull(station)) {
-            trajet.add(station);
+            int indexToInsert = Math.max(0, trajet.size() - 1);
+
+            trajet.add(indexToInsert, station);
 
         }
     }

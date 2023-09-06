@@ -1,0 +1,32 @@
+@startuml
+
+!includeurl https://raw.githubusercontent.com/manuvai/plantuml-utils/master/class_diagram_utils.puml
+
+class Reseau {
+    +void("creerLigne(int, Station, Station)")
+    +member(Ligne, "recupererLigne(int)")
+    +list(Ligne, "recupererLignesDesservantStation(Station)")
+    +list(Station, "recupererStations()")
+    +list(Ligne, "recupererItineraireLignes(Station, Station)")
+}
+
+class Station {
+    -string(nom)
+    +string("getNom()")
+}
+
+class Ligne {
+    -int(noLigne)
+    +member("", "Ligne(int, Station, Station)")
+    +afficher()
+    +list(Station, "getTrajet()")
+    +int("getNoLigne()")
+    +void("insererStation(Station)")
+    +void("supprimerStation(Station)")
+    +member("boolean", "stationDesservie(Station)")
+}
+
+Reseau o--> Ligne : lignes
+Ligne o-right-> Station : trajet
+
+@enduml

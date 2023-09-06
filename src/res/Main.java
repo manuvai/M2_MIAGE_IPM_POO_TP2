@@ -1,5 +1,8 @@
 package res;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -14,5 +17,18 @@ public class Main {
 
         ligneA.supprimerStation(new Station("Compans Cafarelli"));
         ligneA.afficher();
+
+        List<String> entiers = new ArrayList<>();
+
+        entiers.add("1");
+        entiers.add("2");
+        Utils.println(entiers);
+        entiers.add("4");
+        Utils.println(entiers);
+        Utils.println(entiers.size());
+        entiers.add(2, "3");
+
+        Utils.println(entiers);
+
     }
 }
