@@ -1,11 +1,15 @@
 package res;
 
+import res.files.FileReader;
+import res.files.ReseauAdapter;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Station station1 = new Station("Jean Jaures");
         Station station2 = new Station("Jeanne D'Arc");
 
@@ -26,6 +30,12 @@ public class Main {
         reseau.creerLigne(3, stations);
 
         System.out.println(reseau.recupererIteneraireLignes(new Station("Jean Jaures"), new Station("Compans Cafarelli")));
+
+        FileReader fileReader = new FileReader("arretsBus.csv");
+        ReseauAdapter reseauAdapter = new ReseauAdapter();
+
+        Reseau reseau1 = reseauAdapter.getReseau(fileReader.getCsvContent());
+        System.out.println(reseau1.toString());
 
     }
 }
