@@ -141,7 +141,7 @@ public class ReseauTest {
     public void recupererStations_Ok() {
         // GIVEN
         Reseau reseau = reseauMock.getReseauRecupererStations();
-        List<Station> expectedStations = reseauMock.getExpectedStations();
+        List<Station> expectedStations = reseauMock.getExpectedStationsItineraire();
 
         // WHEN
         List<Station> actualStations = reseau.recupererStations();

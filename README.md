@@ -15,3 +15,6 @@ L'utilisation des services est faite dans la classe `Main`
 
 ## Tests et validation
 Les tests unitaires sont définis dans le package `tests.res`
+
+# Note
+Pour l'instant la recherche des lignes désservant d'un point A à un point B ne contient pas tous les trajets.

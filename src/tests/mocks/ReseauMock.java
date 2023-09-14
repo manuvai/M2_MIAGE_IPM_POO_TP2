@@ -44,6 +44,20 @@ public class ReseauMock {
 
     }
 
+    public List<Station> getExpectedStationsItineraire() {
+        Station stationA = new Station("Point A");
+        Station stationB = new Station("Point B");
+        Station stationC = new Station("Point C");
+        Station stationD = new Station("Point D");
+        Station stationE = new Station("Point E");
+        Station stationF = new Station("Point F");
+        Station stationH = new Station("Point H");
+
+        return Stream.of(stationA, stationB, stationC, stationD, stationE, stationF, stationH)
+                .collect(Collectors.toList());
+
+    }
+
     public Reseau getReseauRecupererStations() {
         Reseau reseau = new Reseau();
 
@@ -58,6 +72,10 @@ public class ReseauMock {
         Station stationF = new Station("Point F");
 
         reseau.creerLigne(2, Stream.of(stationD, stationE, stationF).collect(Collectors.toList()));
+
+        Station stationH = new Station("Point H");
+
+        reseau.creerLigne(1, Stream.of(stationD, stationA, stationB, stationC, stationH).collect(Collectors.toList()));
 
         return reseau;
     }

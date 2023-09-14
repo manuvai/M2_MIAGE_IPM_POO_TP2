@@ -64,6 +64,13 @@ public class Reseau {
         return new ArrayList<>(setStations);
     }
 
+    /**
+     * Récupère les lignes désservant la station de départ et d'arrivée
+     *
+     * @param stationDepart
+     * @param stationArrivee
+     * @return
+     */
     public List<Ligne> recupererIteneraireLignes(Station stationDepart, Station stationArrivee) {
         return Objects.isNull(stationDepart) || Objects.isNull(stationArrivee)
                 ? new ArrayList<>()

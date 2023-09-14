@@ -15,20 +15,17 @@ public class Main {
         ligneA.insererStation(new Station("Compans Cafarelli"));
         ligneA.afficher();
 
+        List<Station> stations = new ArrayList<>(ligneA.getTrajet());
+
         ligneA.supprimerStation(new Station("Compans Cafarelli"));
         ligneA.afficher();
 
-        List<String> entiers = new ArrayList<>();
+        Reseau reseau = new Reseau();
+        reseau.creerLigne(1, station1, station2);
+        reseau.creerLigne(2, new Station("François Verdier"), new Station("Compans Cafarelli"));
+        reseau.creerLigne(3, stations);
 
-        entiers.add("1");
-        entiers.add("2");
-        Utils.println(entiers);
-        entiers.add("4");
-        Utils.println(entiers);
-        Utils.println(entiers.size());
-        entiers.add(2, "3");
-
-        Utils.println(entiers);
+        System.out.println(reseau.recupererIteneraireLignes(new Station("Jean Jaures"), new Station("Compans Cafarelli")));
 
     }
 }
