@@ -10,7 +10,6 @@ import res.exceptions.ArrivalAndDepartureSameException;
 import res.exceptions.InvalidEntryException;
 import tests.mocks.ReseauMock;
 
-import java.util.Date;
 import java.util.List;
 
 public class ReseauTest {
@@ -178,7 +177,7 @@ public class ReseauTest {
         Station stationBidon = new Station("Bidon");
 
         // WHEN
-        List<Ligne> lignesItineraires = reseau.recupererIteneraireLignes(null, stationBidon);
+        List<Ligne> lignesItineraires = reseau.recupererItineraireLignes(null, stationBidon);
 
         // THEN
         Assertions.assertTrue(lignesItineraires.isEmpty());
@@ -192,7 +191,7 @@ public class ReseauTest {
         Station stationBidon = new Station("Bidon");
 
         // WHEN
-        List<Ligne> lignesItineraires = reseau.recupererIteneraireLignes(stationBidon, null);
+        List<Ligne> lignesItineraires = reseau.recupererItineraireLignes(stationBidon, null);
 
         // THEN
         Assertions.assertTrue(lignesItineraires.isEmpty());
@@ -207,7 +206,7 @@ public class ReseauTest {
         Station stationBidon2 = new Station("Bidon 2");
 
         // WHEN
-        List<Ligne> lignesItineraires = reseau.recupererIteneraireLignes(stationBidon1, stationBidon2);
+        List<Ligne> lignesItineraires = reseau.recupererItineraireLignes(stationBidon1, stationBidon2);
 
         // THEN
         Assertions.assertTrue(lignesItineraires.isEmpty());
@@ -222,10 +221,10 @@ public class ReseauTest {
         Station stationB = new Station("Point B");
 
         // WHEN
-        List<Ligne> lignesItineraires = reseau.recupererIteneraireLignes(stationA, stationB);
+        List<Ligne> lignesItineraires = reseau.recupererItineraireLignes(stationA, stationB);
 
         // THEN
-        Assertions.assertFalse(lignesItineraires.isEmpty());
+        Assertions.assertEquals(2, lignesItineraires.size());
 
     }
 }

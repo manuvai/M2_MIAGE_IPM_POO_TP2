@@ -1,0 +1,14 @@
+@startuml
+
+() "Station A" as A
+() "Station B" as B
+() "Station C" as C
+() "Station D" as D
+
+A -[#red]- B : Ligne 1
+A -[#red]- C : Ligne 2
+B -[#red]- C : Ligne 3
+D -[#red]- C : Ligne 4
+D -[#red]- B : Ligne 5
+
+@enduml

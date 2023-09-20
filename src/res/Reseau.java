@@ -71,11 +71,26 @@ public class Reseau {
      * @param stationArrivee
      * @return
      */
-    public List<Ligne> recupererIteneraireLignes(Station stationDepart, Station stationArrivee) {
-        return Objects.isNull(stationDepart) || Objects.isNull(stationArrivee)
-                ? new ArrayList<>()
-                : lignes.stream()
-                        .filter(ligne -> ligne.stationDesservie(stationArrivee) && ligne.stationDesservie(stationDepart))
-                        .collect(Collectors.toList());
+    public List<Ligne> recupererItineraireLignes(Station stationDepart, Station stationArrivee) {
+
+        List<Ligne> lignesVisited = new ArrayList<>();
+        List<Ligne> lignesUsed = new ArrayList<>();
+
+        List<Ligne> lignesDesservantStationDepart = recupererLignesDesservantStation(stationDepart);
+
+        for (Ligne ligne : lignesDesservantStationDepart) {
+            if (!lignesVisited.contains(ligne)) {
+
+                if (ligne.stationDesservie(stationArrivee)) {
+                    lignesUsed.add(ligne);
+                }
+
+                lignesVisited.add(ligne);
+            }
+        }
+
+        return lignesUsed;
     }
+
+
 }

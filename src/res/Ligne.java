@@ -16,11 +16,14 @@ public class Ligne {
     }
 
     public void afficher() {
-        String output = "Ligne N° ".concat(Integer.toString(getNoLigne()));
+        Utils.println(toString());
+
+    }
+
+    public String toString() {
+        String output = "\nLigne N° ".concat(Integer.toString(getNoLigne()));
         output = output.concat("\nStations desservies : ").concat(trajet.toString());
-
-        Utils.println(output);
-
+        return output;
     }
 
     public List<Station> getTrajet() {
@@ -29,6 +32,26 @@ public class Ligne {
 
     public int getNoLigne() {
         return noLigne;
+    }
+
+    public void insererStation(Station stationAvant, Station stationApres, Station stationAjoutee) {
+        if (Objects.nonNull(stationAvant)
+                && Objects.nonNull(stationApres)
+                && Objects.nonNull(stationAjoutee)
+                && !trajet.isEmpty()
+        ) {
+            int indexStation1 = trajet.indexOf(stationAvant);
+            int indexStation2 = trajet.indexOf(stationApres);
+
+            boolean isStation1NextStation2 = Math.abs(indexStation1 - indexStation2) == 1;
+
+            if (isStation1NextStation2) {
+                int indexToInsert = Math.max(indexStation1, indexStation2);
+
+                trajet.add(indexToInsert, stationAjoutee);
+            }
+
+        }
     }
 
     public void insererStation(Station station) {

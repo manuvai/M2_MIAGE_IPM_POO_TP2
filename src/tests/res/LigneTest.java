@@ -40,6 +40,32 @@ public class LigneTest {
         Assertions.assertEquals(expectedSize, ligneA.getTrajet().size());
 
     }
+    @Test
+    public void insererStation_InsertBetween_Ok() {
+        // GIVEN
+        Ligne ligneA = ligneMock.getLigneA();
+        int expectedSize = ligneA.getTrajet().size() + 1;
+
+        // WHEN
+        ligneA.insererStation(new Station("Jean Jaures"), new Station("Jeanne D'Arc"), new Station("Compans Cafarelli"));
+
+        // THEN
+        Assertions.assertEquals(expectedSize, ligneA.getTrajet().size());
+
+    }
+    @Test
+    public void insererStation_InsertBetweenMultipleStations_Ok() {
+        // GIVEN
+        Ligne ligne = ligneMock.getLigneMultipleStations();
+        int expectedSize = ligne.getTrajet().size() + 1;
+
+        // WHEN
+        ligne.insererStation(new Station("Concorde"), new Station("Jeanne D'Arc"), new Station("Station interne"));
+
+        // THEN
+        Assertions.assertEquals(expectedSize, ligne.getTrajet().size());
+
+    }
 
     @Test
     public void supprimerStation_stationNull_Ko() {

@@ -18,3 +18,5 @@ Les tests unitaires sont définis dans le package `tests.res`
 
 # Note
 Pour l'instant la recherche des lignes désservant d'un point A à un point B ne contient pas tous les trajets.
+Mais comme piste, il serait possible de remanier le schéma de classe afin d'avoir un lien réciproque entre Station et Ligne pour utiliser la récurrence.
+

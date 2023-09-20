@@ -4,6 +4,7 @@
 
 class Reseau {
     +void("creerLigne(int, Station, Station)")
+    +void("creerLigne(int, List<Ligne>)")
     +member(Ligne, "recupererLigne(int)")
     +list(Ligne, "recupererLignesDesservantStation(Station)")
     +list(Station, "recupererStations()")
@@ -18,9 +19,10 @@ class Station {
 class Ligne {
     -int(noLigne)
     +member("", "Ligne(int, Station, Station)")
-    +afficher()
+    +void("afficher()")
     +list(Station, "getTrajet()")
     +int("getNoLigne()")
+    +void("insererStation(Station, Station, Station)")
     +void("insererStation(Station)")
     +void("supprimerStation(Station)")
     +member("boolean", "stationDesservie(Station)")
